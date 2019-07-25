@@ -122,6 +122,8 @@ void textEditor::examineTop(){
     else
         cout << "rightStack: " << rightStack.top() << "," << rightStack.size() << endl;
 } //End of function
+
+
 int main() {
     fast1;
     int i=0;
