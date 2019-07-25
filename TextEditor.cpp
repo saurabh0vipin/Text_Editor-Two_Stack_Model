@@ -60,6 +60,43 @@ bool textEditor::backSpaceCharacter(){
     return true;
 }//End of function
 
+void textEditor::moveLeft(int position){
+    int leftSize;
+    leftSize = leftStack.size();
+    while(position!=leftSize) {
+        rightStack.push(leftStack.top());
+        leftStack.pop();
+        leftSize = leftStack.size();
+    }
+}//End of function
+
+void textEditor::moveRight(int count){
+    int rightSize, i=1;
+    rightSize = rightStack.size();
+    if (count > rightSize)
+        cout << "Cannot move the cursor, right, to the specified position";
+    else {
+        while(i<=count) {
+            leftStack.push(rightStack.top());
+            rightStack.pop();
+            i++;
+        } //End of while
+    } //End of else
+}//End of function
+
+void textEditor::moveCursor(int position){
+
+    int leftSize, rightSize, count;
+    leftSize = leftStack.size();
+    rightSize = rightStack.size();
+    if (position < leftSize)
+        moveLeft(position);
+    else {
+        count = position - leftSize;
+        moveRight(count);
+    }
+}//End of function
+
 int main() {
     fast1;
 
