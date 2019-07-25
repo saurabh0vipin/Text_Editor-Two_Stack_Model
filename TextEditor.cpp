@@ -37,6 +37,20 @@ void textEditor::insertWord(string word) {
     }
 } //End of function
 
+void textEditor::insertCharacter(char character){
+
+    leftStack.push(character);
+} //End of function
+
+bool textEditor::deleteCharacter(){
+
+    if (rightStack.empty())
+        return false;
+    else
+        rightStack.pop();
+    return true;
+}//End of function
+
 int main() {
     fast1;
 
