@@ -51,6 +51,15 @@ bool textEditor::deleteCharacter(){
     return true;
 }//End of function
 
+bool textEditor::backSpaceCharacter(){
+
+    if (leftStack.empty())
+        return false;
+    else
+        leftStack.pop();
+    return true;
+}//End of function
+
 int main() {
     fast1;
 
