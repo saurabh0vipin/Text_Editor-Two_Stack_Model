@@ -28,6 +28,15 @@ class textEditor {
         void examineTop();
 }; //End of class
 
+void textEditor::insertWord(string word) {
+    int i=0;
+
+    while(word[i]!='\0') {
+        insertCharacter(word[i]);
+        i++;
+    }
+} //End of function
+
 int main() {
     fast1;
 
