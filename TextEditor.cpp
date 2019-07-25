@@ -126,6 +126,46 @@ void textEditor::examineTop(){
 } //End of function
 int main() {
     fast1;
+    int i=0;
+    char text[80];
+    textEditor txt;
 
+    cout << "Enter the word to be inserted: ";
+    cin.getline(text,80);
+    txt.insertWord(text);
+
+    cout << "Inserting the word:";
+    txt.examineTop();
+
+    cout << "Enter the word to be inserted: ";
+    cin.getline(text,80);
+    txt.insertWord(text);
+    cout << "Inserting the word:";
+    txt.examineTop();
+    cout << "Move cursor to the position 14: ";
+    txt.moveCursor(14); txt.examineTop();
+    cout << "Move cursor to the position 17: ";
+    txt.moveCursor(17);
+    txt.examineTop();
+
+    for(i=0;i<3;i++){
+        if(!txt.deleteCharacter())
+            cout << "There is nothing to delete. Move your cursor accordingly to delete the character";
+        else
+            cout << "Delete characters using DEL: ";
+            txt.examineTop();
+    }
+
+    for(i=0;i<7;i++){
+        if(!txt.backSpaceCharacter())
+            cout << "There is nothing to delete. Move your cursor accordingly to delete the character";
+        else
+            cout << "Delete characters using Backspace: ";
+            txt.examineTop();
+    }
+
+    txt.findAndReplaceChar('t','T');
+    cout << "Replace occurrences of t with T: ";
+    txt.examineTop();
     return 0;
 } //End of main
