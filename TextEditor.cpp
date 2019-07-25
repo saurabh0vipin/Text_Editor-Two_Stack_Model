@@ -114,6 +114,16 @@ void textEditor::findAndReplaceChar(char findWhat, char replaceWith){
     moveCursor(originalCursorPoistion); //Retain the original cursor position
 } //End of function
 
+void textEditor::examineTop(){
+    if(leftStack.empty())
+        cout << "leftStack: empty\t";
+    else
+        cout << "leftStack: " << leftStack.top() << "," << leftStack.size() << "\t\t";
+    if(rightStack.empty())
+        cout << "rightStack: empty\n";
+    else
+        cout << "rightStack: " << rightStack.top() << "," << rightStack.size() << endl;
+} //End of function
 int main() {
     fast1;
 
