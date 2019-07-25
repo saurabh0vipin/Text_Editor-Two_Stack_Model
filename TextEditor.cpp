@@ -97,6 +97,23 @@ void textEditor::moveCursor(int position){
     }
 }//End of function
 
+void textEditor::findAndReplaceChar(char findWhat, char replaceWith){
+
+    int count=1, originalCursorPoistion = leftStack.size();
+    moveCursor(0); //Move characters from left stack to right stack
+    //Move characters from right stack to left stack and examine
+    while(!rightStack.empty()) {
+        if(rightStack.top()==findWhat) {
+        deleteCharacter();
+        insertCharacter(replaceWith);
+        }
+        else
+            moveCursor(count);
+            count++;
+    } //End of while
+    moveCursor(originalCursorPoistion); //Retain the original cursor position
+} //End of function
+
 int main() {
     fast1;
 
